@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA-MEDS | Botanical Care</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand-logo">🧬 Madhu<span>Pharmacy</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medicines.html">Medicines Catalog</a>
+      <a href="botanical.html" class="active">Botanical Care</a>
+      <a href="diagnostics.html">Lab Diagnostics</a>
+      <a href="telemetry.html">Cold-Chain IoT</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Lab-Standardized Botanical Extracts</h1>
+        <p>Combining bio-molecular extraction with ancient herbal medicine for natural therapy.</p>
+      </div>
+    </div>
+
+    <div class="grid-5">
+      <div class="pharmacy-card">
+        <span class="badge">Adaptogen</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&q=80" alt="Ashwagandha">
+        <div class="card-title">KSM-66 Organic Ashwagandha</div>
+        <div class="card-desc">Root extract standardized to 5% withanolides for adrenal balance.</div>
+        <div class="card-spec">100% Organic Solvent Free</div>
+        <div class="card-bottom">
+          <span class="price">₹550</span>
+          <button class="btn-buy" onclick="addToCart('Ashwagandha KSM-66', 550)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Anti-Inflammatory</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&q=80" alt="Curcumin">
+        <div class="card-title">Bio-Curcumin 95% Extract</div>
+        <div class="card-desc">Enriched with BioPerine piperine for 2000% higher absorption.</div>
+        <div class="card-spec">HPLC Tested Purity</div>
+        <div class="card-bottom">
+          <span class="price">₹680</span>
+          <button class="btn-buy" onclick="addToCart('Bio-Curcumin 95%', 680)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Nootropic</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1546554137-f86b9593a222?w=500&q=80" alt="Matcha">
+        <div class="card-title">Ceremonial Grade Matcha</div>
+        <div class="card-desc">High L-Theanine matcha powder harvested from Uji, Japan.</div>
+        <div class="card-spec">Shade Grown Single Origin</div>
+        <div class="card-bottom">
+          <span class="price">₹890</span>
+          <button class="btn-buy" onclick="addToCart('Ceremonial Matcha', 890)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Skin Care</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1512290900673-0dbd0317e082?w=500&q=80" alt="Essential Oil">
+        <div class="card-title">Cold-Pressed Neem Extract</div>
+        <div class="card-desc">Therapeutic grade botanical oil for topical anti-microbial care.</div>
+        <div class="card-spec">Unrefined Pure Oil</div>
+        <div class="card-bottom">
+          <span class="price">₹390</span>
+          <button class="btn-buy" onclick="addToCart('Neem Extract Oil', 390)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Immunity</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1563172897-93625b720888?w=500&q=80" alt="Raw Honey">
+        <div class="card-title">Wild Mountain Raw Honey</div>
+        <div class="card-desc">Unpasteurized enzymatic honey loaded with active pinocembrin.</div>
+        <div class="card-spec">Wild Forest Harvested</div>
+        <div class="card-bottom">
+          <span class="price">₹499</span>
+          <button class="btn-buy" onclick="addToCart('Raw Honey', 499)">+ Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+ <!-- Elaborated Rich Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 0.8rem;">🧬 AURA<span>MEDS</span></div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          WHO-GMP certified cold-chain precision pharmacy network delivering essential medical vault supplies via drone fleet.
+        </p>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--cyan-neon);">
+          🚨 24/7 Emergency Care: <b>1800-AURA-MEDS</b>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Vault Access</h4>
+        <ul>
+          <li><a href="index.html">Home Direct</a></li>
+          <li><a href="medicines.html">Medicines Catalog</a></li>
+          <li><a href="telemetry.html">IoT Live Telemetry</a></li>
+          <li><a href="cart.html">Express Cart Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Specialized Care</h4>
+        <ul>
+          <li><a href="#">Antibiotics & Anti-Infectives</a></li>
+          <li><a href="#">Cardiology & Lipid Support</a></li>
+          <li><a href="#">Pediatric Formulations</a></li>
+          <li><a href="#">Cold-Chain Vaccines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Regulatory Compliance</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          Licensed by Central Drugs Standard Control Organization (CDSCO).
+        </p>
+        <div style="display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--blue-glow);">
+          <span>🛡️ ISO 9001</span> • <span>🔒 SSL Encrypted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AURA-MEDS Inc. All rights reserved. Directed by Dr. Madhu, M.D.
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

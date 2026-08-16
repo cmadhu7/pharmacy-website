@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA-MEDS | Prescription Medicines</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand-logo">🧬 Madhu<span>Pharmacy</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medicines.html" class="active">Medicines Catalog</a>
+      <a href="botanical.html">Botanical Care</a>
+      <a href="diagnostics.html">Lab Diagnostics</a>
+      <a href="telemetry.html">Cold-Chain IoT</a>
+      <!-- ADDED id="cartBtn" HERE -->
+      <a href="#" id="cartBtn">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Prescription & Specialised Formulations</h1>
+        <p>Access high-purity pharmaceutical compounds directly from certified lab partners.</p>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active">All Drugs</button>
+      <button class="filter-btn">Antibiotics</button>
+      <button class="filter-btn">Cardiovascular</button>
+      <button class="filter-btn">Gastroenterology</button>
+      <button class="filter-btn">Dermatology</button>
+    </div>
+
+    <div class="grid-5">
+      <div class="pharmacy-card">
+        <span class="badge">Analgesic</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="Ibuprofen">
+        <div class="card-title">Ibuprofen Ultra 400mg</div>
+        <div class="card-desc">Fast-acting non-steroidal anti-inflammatory tablet for joint and nerve relief.</div>
+        <div class="card-spec">Purity Grade: 99.8% Medical</div>
+        <div class="card-bottom">
+          <span class="price">₹120</span>
+          <button class="btn-buy" onclick="addToCart('Ibuprofen 400mg', 120)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Antibiotic</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1550572017-edf79289050e?w=500&q=80" alt="Azithromycin">
+        <div class="card-title">Azithromycin 500mg</div>
+        <div class="card-desc">Targeted macrolide antibiotic designed for bacterial respiratory therapy.</div>
+        <div class="card-spec">Purity Grade: 100% WHO Certified</div>
+        <div class="card-bottom">
+          <span class="price">₹240</span>
+          <button class="btn-buy" onclick="addToCart('Azithromycin 500mg', 240)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Hypertension</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80" alt="Amlodipine">
+        <div class="card-title">Amlodipine Besylate 5mg</div>
+        <div class="card-desc">Calcium channel blocker for long-term arterial pressure control.</div>
+        <div class="card-spec">Purity Grade: 99.4% USP</div>
+        <div class="card-bottom">
+          <span class="price">₹175</span>
+          <button class="btn-buy" onclick="addToCart('Amlodipine 5mg', 175)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Gastro</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=500&q=80" alt="Pantoprazole">
+        <div class="card-title">Pantoprazole 40mg Tableting</div>
+        <div class="card-desc">Proton pump inhibitor preventing acute gastric mucosal erosion.</div>
+        <div class="card-spec">Purity Grade: Enteric Coated</div>
+        <div class="card-bottom">
+          <span class="price">₹160</span>
+          <button class="btn-buy" onclick="addToCart('Pantoprazole 40mg', 160)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Antihistamine</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" alt="Cetirizine">
+        <div class="card-title">Cetirizine HCl 10mg</div>
+        <div class="card-desc">24-hour non-drowsy formulation for severe allergic response management.</div>
+        <div class="card-spec">Purity Grade: 99.9% Pure</div>
+        <div class="card-bottom">
+          <span class="price">₹65</span>
+          <button class="btn-buy" onclick="addToCart('Cetirizine 10mg', 65)">+ Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Popup Window -->
+  <div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+    <div style="background:white; color:black; padding:20px; max-width:400px; margin:100px auto; border-radius:8px;">
+      <h2>Your Cart</h2>
+      <div id="cartItems">Your cart is empty.</div>
+      <br>
+      <button id="closeCartBtn" onclick="document.getElementById('cartModal').style.display='none'">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 0.8rem;">🧬 AURA<span>MEDS</span></div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          WHO-GMP certified cold-chain precision pharmacy network delivering essential medical vault supplies via drone fleet.
+        </p>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--cyan-neon);">
+          🚨 24/7 Emergency Care: <b>1800-AURA-MEDS</b>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Vault Access</h4>
+        <ul>
+          <li><a href="index.html">Home Direct</a></li>
+          <li><a href="medicines.html">Medicines Catalog</a></li>
+          <li><a href="telemetry.html">IoT Live Telemetry</a></li>
+          <li><a href="cart.html">Express Cart Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Specialized Care</h4>
+        <ul>
+          <li><a href="#">Antibiotics & Anti-Infectives</a></li>
+          <li><a href="#">Cardiology & Lipid Support</a></li>
+          <li><a href="#">Pediatric Formulations</a></li>
+          <li><a href="#">Cold-Chain Vaccines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Regulatory Compliance</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          Licensed by Central Drugs Standard Control Organization (CDSCO).
+        </p>
+        <div style="display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--blue-glow);">
+          <span>🛡️ ISO 9001</span> • <span>🔒 SSL Encrypted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AURA-MEDS Inc. All rights reserved. Directed by Dr. Madhu, M.D.
+    </div>
+  </footer>
+
+  <!-- Script placed at bottom so all DOM elements are loaded -->
+  <script src="app.js"></script>
+  <script>
+    const cartBtn = document.getElementById('cartBtn');
+    if (cartBtn) {
+      cartBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('cartModal').style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

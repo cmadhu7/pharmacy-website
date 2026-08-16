@@ -1,0 +1,587 @@
+/* Mee patha background dullness povalante ee lines ni styles.css bottom lo paste cheyandi */
+
+body {
+  background-color: #050811 !important;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(255, 0, 127, 0.25) 0%, transparent 45%),
+    linear-gradient(to bottom, rgba(5, 8, 17, 0.7), rgba(5, 8, 17, 0.88)),
+    url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2000&auto=format&fit=crop') !important;
+  background-attachment: fixed !important;
+}
+
+/* Bright Neon Colors setup */
+:root {
+  --bg-primary: #050811 !important;
+  --bg-surface: rgba(15, 23, 42, 0.95) !important;
+  --panel-bg: rgba(20, 30, 55, 0.9) !important;
+  --panel-border: #00F0FF !important;
+  --blue-glow: #00E5FF !important;
+  --cyan-neon: #00FFCC !important;
+  --text-main: #FFFFFF !important;
+  --text-muted: #CBD5E1 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  background-image: 
+    linear-gradient(to bottom, rgba(11, 15, 23, 0.88), rgba(11, 15, 23, 0.95)),
+    url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+.top-bar {
+  background: linear-gradient(90deg, #0284C7, #06B6D4);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+header {
+  background: rgba(11, 15, 23, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-logo span {
+  color: var(--blue-glow);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  color: var(--blue-glow);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.btn-auth-outline {
+  background: transparent;
+  border: 1px solid var(--cyan-neon);
+  color: var(--cyan-neon);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-auth-outline:hover {
+  background: var(--cyan-neon);
+  color: #fff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.hero-banner {
+  background: 
+    linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(11, 15, 23, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 3.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  color: #CBD5E1;
+  max-width: 650px;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+.pharmacy-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  padding: 1.2rem;
+  backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.pharmacy-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-glow);
+  box-shadow: 0 16px 35px rgba(6, 182, 212, 0.25);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--cyan-neon);
+  color: var(--cyan-neon);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.card-spec {
+  font-size: 0.75rem;
+  color: var(--blue-glow);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.8rem;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--blue-glow);
+}
+
+.btn-buy {
+  background: linear-gradient(135deg, #06B6D4 0%, #0284C7 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.metric-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.metric-val {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--blue-glow);
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Map Tracking & Dispatch Section */
+.delivery-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+  position: relative;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: invert(90%) hue-rotate(180deg) contrast(120%);
+}
+
+.location-input-group {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.location-input-group input {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  background: var(--bg-primary);
+  color: white;
+  flex-grow: 1;
+}
+
+/* Auth Modal Window */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--cyan-neon);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(6, 182, 212, 0.3);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-content input {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  background: var(--bg-primary);
+  color: white;
+}
+
+footer {
+  background: rgba(8, 11, 17, 0.95);
+  border-top: 1px solid var(--panel-border);
+  padding: 3rem 2rem 1.5rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+}
+/* ==================== KOTHA STYLING ADDONS ==================== */
+
+/* Doctor Profile Header Styling */
+.brand-header-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.doctor-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--cyan-neon);
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.doc-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cyan-neon);
+  box-shadow: 0 0 10px var(--cyan-neon);
+}
+
+.doc-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #FFF;
+}
+
+.doc-title {
+  font-size: 0.7rem;
+  color: var(--cyan-neon);
+  font-weight: 600;
+}
+
+/* Bright Neon Dynamic Color Overrides */
+:root {
+  --cyan-neon: #00FFCC !important;
+  --blue-glow: #00E5FF !important;
+  --pink-neon: #FF007F !important;
+}
+/* Elaborated Footer Module Styling */
+footer {
+  background: rgba(5, 8, 17, 0.95) !important;
+  border-top: 2px solid var(--panel-border) !important;
+  padding: 3rem 2rem 1.5rem 2rem !important;
+  margin-top: 4rem !important;
+  box-shadow: 0 -10px 30px rgba(0, 240, 255, 0.1) !important;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--cyan-neon);
+  padding-left: 0.5rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--cyan-neon);
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.83rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+}
+/* Slide-Out Cart Drawer Styling */
+.cart-drawer-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9998;
+  display: none;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0; right: -420px;
+  width: 400px; height: 100%;
+  background: #090e1a;
+  border-left: 2px solid var(--cyan-neon);
+  box-shadow: -10px 0 30px rgba(0, 240, 255, 0.2);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-drawer-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex; justify-content: space-between; align-items: center;
+  color: #fff;
+}
+
+.cart-close-btn {
+  background: none; border: none;
+  color: #fff; font-size: 1.8rem; cursor: pointer;
+}
+
+.cart-drawer-body {
+  flex: 1; padding: 1.5rem; overflow-y: auto;
+}
+
+.cart-item-card {
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 1rem; border-radius: 12px; margin-bottom: 1rem;
+}
+
+.cart-item-info h4 { margin: 0; color: #fff; font-size: 0.95rem; }
+.cart-item-info p { margin: 0.2rem 0 0; color: var(--cyan-neon); font-weight: 700; }
+
+.cart-remove-btn {
+  background: transparent; border: 1px solid #FF007F;
+  color: #FF007F; padding: 0.3rem 0.6rem; border-radius: 6px; cursor: pointer;
+}
+
+.cart-drawer-footer {
+  padding: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.cart-total-row {
+  display: flex; justify-content: space-between;
+  color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.9rem;
+}
+
+.cart-total-row.final-price {
+  color: #fff; font-size: 1.2rem; font-weight: 800; margin-top: 0.8rem;
+}

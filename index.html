@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA-MEDS | Precision Digital Pharmacy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<!-- ==================== KOTHA AI PRESCRIPTION & DISPATCH MODULES ==================== -->
+  
+  <!-- AI Prescription Scan Popup Modal -->
+  <div class="modal-overlay" id="rx-modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closePrescriptionModal()">&times;</span>
+      <h3 style="color: var(--cyan-neon); text-align: center; margin-bottom: 1rem;">🤖 AI Optical Recognition</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Prescription Scanned Successfully. Detected Items:</p>
+      <div class="doctor-profile">
+    <img src="images/madhu-doctor.png" alt="Madhu Pharmacy Professional">
+</div>
+      <div style="background: rgba(0,240,255,0.05); border: 1px solid var(--panel-border); padding: 1rem; border-radius: 12px; margin: 1.2rem 0; font-size: 0.85rem;">
+        <div>🔹 <b>Amoxicillin 500mg</b> (Dosage: 1 Capsule - 3x Daily)</div>
+        <div style="margin-top: 0.5rem;">🔹 <b>Bio-Zinc Multi-Vitamin</b> (Dosage: 1 Tablet - 1x Daily)</div>
+      </div>
+
+      <button class="btn-buy" style="width: 100%;" onclick="autoAddScannedMeds()">Confirm & Push to Cart 🛒</button>
+    </div>
+  </div>
+  <!-- Slide-Out Cart Drawer -->
+<div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="toggleCartDrawer()"></div>
+
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>🛒 Your Medical Cart</h3>
+    <button class="cart-close-btn" onclick="toggleCartDrawer()">&times;</button>
+  </div>
+
+  <div class="cart-drawer-body" id="drawer-cart-items">
+    <!-- Selected items list will render dynamically here -->
+  </div>
+
+  <div class="cart-drawer-footer">
+    <div class="cart-total-row">
+      <span>Subtotal:</span>
+      <span id="drawer-subtotal">₹0.00</span>
+    </div>
+    <div class="cart-total-row final-price">
+      <span>Total (incl. Taxes):</span>
+      <span id="drawer-total">₹0.00</span>
+    </div>
+    <button class="btn-buy" style="width: 100%; margin-top: 1rem;" onclick="alert('Order Dispatched Successfully! 🚀')">Proceed to Checkout 💳</button>
+  </div>
+</div>
+
+ 
+<body>
+
+  <div class="top-bar">🚀 24/7 COLD-CHAIN EXPRESS DRONE DELIVERY ACTIVE IN YOUR AREA</div>
+
+  <header>
+    <div class="brand-logo">🧬 Madhu<span>Pharmacy</span></div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="medicines.html">Medicines Catalog</a>
+      <a href="botanical.html">Botanical Care</a>
+      <a href="diagnostics.html">Lab Diagnostics</a>
+      <a href="telemetry.html">Cold-Chain IoT</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <button class="btn-auth-outline" onclick="openAuthModal('login')">Sign In</button>
+      <button class="btn-buy" style="padding: 0.4rem 1rem;" onclick="openAuthModal('signup')">Sign Up</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Next-Gen Automated Pharmaceutical Supply</h1>
+        <p>WHO-GMP Certified verified inventory stored in micro-climate vault environments. Rapid 30-minute doorstep dispatch guaranteed via IoT Cold-Chain fleet.</p>
+        
+        <div style="display: flex; gap: 0.8rem; margin-top: 1.5rem;">
+          <input type="text" id="search-input" placeholder="Search by generic salt (e.g., Paracetamol, Amoxicillin)..." style="padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid var(--panel-border); background: var(--bg-surface); color: white; width: 340px;">
+          <button class="btn-buy" onclick="searchStore()">Search Store</button>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-surface); padding: 2rem; border-radius: 20px; border: 1px dashed var(--cyan-neon); text-align: center; width: 320px;">
+        <h3 style="color: var(--blue-glow); margin-bottom: 0.5rem;">📜 Upload Prescription</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem;">AI Scans & Auto-Fills Order Cart</p>
+        <button class="btn-buy" style="width: 100%;" onclick="uploadPrescription()">Upload Document 📤</button>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Bar -->
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-val">100%</div>
+        <div class="metric-label">Verified Authentic Drugs</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val" id="live-temp">3.62 °C</div>
+        <div class="metric-label">Vault Storage Temperature</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">15 Mins</div>
+        <div class="metric-label">Avg. Urban Dispatch Time</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">50,000+</div>
+        <div class="metric-label">Prescriptions Delivered</div>
+      </div>
+    </div>
+
+    <!-- Live Drone Delivery Map & Location Finder Section -->
+    <div class="delivery-section">
+      <div>
+        <h2 style="color: var(--blue-glow); margin-bottom: 0.5rem;">📍 Live Drone Express Dispatch Tracker</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Check real-time coverage and delivery slot timings by entering your address or city area code.</p>
+        
+        <div class="location-input-group">
+          <input type="text" id="user-location" placeholder="Enter City, Area or Pincode...">
+          <button class="btn-buy" onclick="updateDeliveryLocation()">Check Delivery</button>
+        </div>
+
+        <div id="dispatch-status" style="margin-top: 1.5rem; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--panel-border); padding: 1rem; border-radius: 12px; font-size: 0.9rem;">
+          📍 Current Location: <b>Central Fleet Hub</b> • Standard Arrival Time: <b>15 - 30 Mins</b>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <!-- Live OpenStreetMap Embed Dynamic Route View -->
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=78.43%2C17.36%2C78.49%2C17.45&layer=mapnik"></iframe>
+      </div>
+    </div>
+
+    <h2>Featured Clinical Products</h2>
+    <div class="grid-5">
+
+      <div class="pharmacy-card">
+        <span class="badge">Prescription</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="Amoxicillin">
+        <div class="card-title">Amoxicillin Trio-Pack 500mg</div>
+        <div class="card-desc">Broad-spectrum antibacterial formulation targeting systemic infections.</div>
+        <div class="card-spec">Batch: #AX-2026-90 • Exp: 08/2028</div>
+        <div class="card-bottom">
+          <span class="price">₹185</span>
+          <button class="btn-buy" onclick="addToCart('Amoxicillin Trio-Pack', 185)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">OTC Wellness</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1550572017-edf79289050e?w=500&q=80" alt="Vitamins">
+        <div class="card-title">Bio-Zinc Multi-Vitamin Complex</div>
+        <div class="card-desc">Cellular micronutrient matrix for immune system fortification.</div>
+        <div class="card-spec">Batch: #BZ-9921-12 • Exp: 12/2027</div>
+        <div class="card-bottom">
+          <span class="price">₹340</span>
+          <button class="btn-buy" onclick="addToCart('Bio-Zinc Multi-Vitamin', 340)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Cardiology</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80" alt="Cardiac">
+        <div class="card-title">Cardio CoQ10 300mg Capsules</div>
+        <div class="card-desc">High-potency cardiac vascular support and energetic lipid defense.</div>
+        <div class="card-spec">Batch: #CQ-1088-44 • Exp: 05/2029</div>
+        <div class="card-bottom">
+          <span class="price">₹620</span>
+          <button class="btn-buy" onclick="addToCart('Cardio CoQ10', 620)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Pediatric</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=500&q=80" alt="Syrup">
+        <div class="card-title">Pediatric Paracetamol Syrup</div>
+        <div class="card-desc">Gentle fast-acting analgesic & antipyretic for children.</div>
+        <div class="card-spec">Batch: #PP-3012-09 • Exp: 01/2027</div>
+        <div class="card-bottom">
+          <span class="price">₹110</span>
+          <button class="btn-buy" onclick="addToCart('Pediatric Syrup', 110)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Diabetic</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" alt="Diabetes">
+        <div class="card-title">Metformin ER 1000mg</div>
+        <div class="card-desc">Extended-release glycemic regulator for blood glucose stabilization.</div>
+        <div class="card-spec">Batch: #MF-8801-99 • Exp: 10/2028</div>
+        <div class="card-bottom">
+          <span class="price">₹210</span>
+          <button class="btn-buy" onclick="addToCart('Metformin ER', 210)">+ Add</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Login / Sign-Up Modal -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+      <h3 id="auth-title" style="color: var(--blue-glow); text-align: center;">Security Portal</h3>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <input type="email" placeholder="Registered Email ID" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="btn-buy" style="margin-top: 0.5rem;">Access Portal 🔓</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form" style="display: none;" onsubmit="handleSignup(event)">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Mobile Number (+91)" required>
+        <input type="password" placeholder="Create Password" required>
+        <button type="submit" class="btn-buy" style="margin-top: 0.5rem;">Create Account ✨</button>
+      </form>
+    </div>
+  </div>
+
+  
+ <!-- Elaborated Rich Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 0.8rem;">🧬 AURA<span>MEDS</span></div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          WHO-GMP certified cold-chain precision pharmacy network delivering essential medical vault supplies via drone fleet.
+        </p>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--cyan-neon);">
+          🚨 24/7 Emergency Care: <b>1800-AURA-MEDS</b>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Vault Access</h4>
+        <ul>
+          <li><a href="index.html">Home Direct</a></li>
+          <li><a href="medicines.html">Medicines Catalog</a></li>
+          <li><a href="telemetry.html">IoT Live Telemetry</a></li>
+          <li><a href="cart.html">Express Cart Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Specialized Care</h4>
+        <ul>
+          <li><a href="#">Antibiotics & Anti-Infectives</a></li>
+          <li><a href="#">Cardiology & Lipid Support</a></li>
+          <li><a href="#">Pediatric Formulations</a></li>
+          <li><a href="#">Cold-Chain Vaccines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Regulatory Compliance</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          Licensed by Central Drugs Standard Control Organization (CDSCO).
+        </p>
+        <div style="display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--blue-glow);">
+          <span>🛡️ ISO 9001</span> • <span>🔒 SSL Encrypted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AURA-MEDS Inc. All rights reserved. Directed by Dr. Madhu, M.D.
+    </div>
+  </footer>
+  
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA-MEDS | Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand-logo">🧬 Madhu<span>Pharmacy</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medicines.html">Medicines Catalog</a>
+      <a href="botanical.html">Botanical Care</a>
+      <a href="diagnostics.html">Lab Diagnostics</a>
+      <a href="telemetry.html">Cold-Chain IoT</a>
+      <a href="cart.html" class="active">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Your Prescription Order & Dispatch Summary</h1>
+        <p>Review selected clinical supplies and process immediate priority dispatch.</p>
+      </div>
+    </div>
+
+    <h2>Essentials & Medical Add-ons</h2>
+    <div class="grid-5">
+      <div class="pharmacy-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=500&q=80" alt="Sanitizer">
+        <div class="card-title">Hospital Gel Sanitizer</div>
+        <div class="card-desc">75% Isopropyl alcohol antiseptic formula with moisturizing aloe lipids.</div>
+        <div class="card-bottom">
+          <span class="price">₹99</span>
+          <button class="btn-buy" onclick="addToCart('Hospital Sanitizer', 99)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&q=80" alt="N95 Masks">
+        <div class="card-title">N95 Respirators (Pack of 5)</div>
+        <div class="card-desc">5-layer electrostatically charged meltblown particle filter masks.</div>
+        <div class="card-bottom">
+          <span class="price">₹250</span>
+          <button class="btn-buy" onclick="addToCart('N95 Mask Pack', 250)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=80" alt="Thermometer">
+        <div class="card-title">IR Non-Contact Thermometer</div>
+        <div class="card-desc">0.5-second clinical degree medical infrared forehead scanner.</div>
+        <div class="card-bottom">
+          <span class="price">₹1,250</span>
+          <button class="btn-buy" onclick="addToCart('IR Thermometer', 1250)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=500&q=80" alt="First Aid">
+        <div class="card-title">First-Aid Emergency Kit</div>
+        <div class="card-desc">Complete home emergency response box with sterile bandages and gauze.</div>
+        <div class="card-bottom">
+          <span class="price">₹150</span>
+          <button class="btn-buy" onclick="addToCart('First Aid Kit', 150)">+ Add</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="Oximeter">
+        <div class="card-title">OLED Pulse Oximeter</div>
+        <div class="card-desc">Accurate blood oxygen saturation (SpO2) & pulse rate meter.</div>
+        <div class="card-bottom">
+          <span class="price">₹850</span>
+          <button class="btn-buy" onclick="addToCart('Pulse Oximeter', 850)">+ Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+ <!-- Elaborated Rich Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 0.8rem;">🧬 AURA<span>MEDS</span></div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          WHO-GMP certified cold-chain precision pharmacy network delivering essential medical vault supplies via drone fleet.
+        </p>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--cyan-neon);">
+          🚨 24/7 Emergency Care: <b>1800-AURA-MEDS</b>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Vault Access</h4>
+        <ul>
+          <li><a href="index.html">Home Direct</a></li>
+          <li><a href="medicines.html">Medicines Catalog</a></li>
+          <li><a href="telemetry.html">IoT Live Telemetry</a></li>
+          <li><a href="cart.html">Express Cart Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Specialized Care</h4>
+        <ul>
+          <li><a href="#">Antibiotics & Anti-Infectives</a></li>
+          <li><a href="#">Cardiology & Lipid Support</a></li>
+          <li><a href="#">Pediatric Formulations</a></li>
+          <li><a href="#">Cold-Chain Vaccines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Regulatory Compliance</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          Licensed by Central Drugs Standard Control Organization (CDSCO).
+        </p>
+        <div style="display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--blue-glow);">
+          <span>🛡️ ISO 9001</span> • <span>🔒 SSL Encrypted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AURA-MEDS Inc. All rights reserved. Directed by Dr. Madhu, M.D.
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

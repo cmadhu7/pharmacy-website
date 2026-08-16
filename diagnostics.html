@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA-MEDS | Lab Diagnostics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand-logo">🧬 Madhu<span>Pharmacy</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medicines.html">Medicines Catalog</a>
+      <a href="botanical.html">Botanical Care</a>
+      <a href="diagnostics.html" class="active">Lab Diagnostics</a>
+      <a href="telemetry.html">Cold-Chain IoT</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Pathology & Diagnostic Panel Booking</h1>
+        <p>Book automated phlebotomist home visits with real-time barcode sample tracking.</p>
+      </div>
+    </div>
+
+    <div class="grid-5">
+      <div class="pharmacy-card">
+        <span class="badge">Full Profile</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=500&q=80" alt="Blood Diagnostic">
+        <div class="card-title">Comprehensive Body Panel</div>
+        <div class="card-desc">85 Parameters including CBC, Lipid, Liver Function, & Renal Metrics.</div>
+        <div class="card-spec">Report Delivery: 12 Hours</div>
+        <div class="card-bottom">
+          <span class="price">₹1,499</span>
+          <button class="btn-buy" onclick="addToCart('Comprehensive Body Panel', 1499)">Book Test</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Diabetes</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=500&q=80" alt="Diabetes Testing">
+        <div class="card-title">HbA1c Glycemic Panel</div>
+        <div class="card-desc">HPLC-certified 90-day mean glucose analysis & metabolic index.</div>
+        <div class="card-spec">Report Delivery: 6 Hours</div>
+        <div class="card-bottom">
+          <span class="price">₹499</span>
+          <button class="btn-buy" onclick="addToCart('HbA1c Test Panel', 499)">Book Test</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Thyroid</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=500&q=80" alt="Thyroid Test">
+        <div class="card-title">Thyroid Profile (T3, T4, TSH)</div>
+        <div class="card-desc">Chemiluminescence Immunoassay (CLIA) for endocrine evaluation.</div>
+        <div class="card-spec">Report Delivery: 8 Hours</div>
+        <div class="card-bottom">
+          <span class="price">₹399</span>
+          <button class="btn-buy" onclick="addToCart('Thyroid Profile', 399)">Book Test</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Vitamins</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80" alt="Vitamin Panel">
+        <div class="card-title">Vitamin D3 & B12 Screening</div>
+        <div class="card-desc">Quantitative electrochemiluminescence testing for bone & nerve health.</div>
+        <div class="card-spec">Report Delivery: 12 Hours</div>
+        <div class="card-bottom">
+          <span class="price">₹999</span>
+          <button class="btn-buy" onclick="addToCart('Vitamin Panel', 999)">Book Test</button>
+        </div>
+      </div>
+
+      <div class="pharmacy-card">
+        <span class="badge">Cardio</span>
+        <img class="card-img" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80" alt="Cardiac Test">
+        <div class="card-title">Advanced Cardiac Risk Panel</div>
+        <div class="card-desc">hs-CRP, Lipid Sub-fractions, and ApoB cardiovascular evaluation.</div>
+        <div class="card-spec">Report Delivery: 24 Hours</div>
+        <div class="card-bottom">
+          <span class="price">₹1,199</span>
+          <button class="btn-buy" onclick="addToCart('Cardiac Risk Panel', 1199)">Book Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+ <!-- Elaborated Rich Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 0.8rem;">🧬 AURA<span>MEDS</span></div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          WHO-GMP certified cold-chain precision pharmacy network delivering essential medical vault supplies via drone fleet.
+        </p>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--cyan-neon);">
+          🚨 24/7 Emergency Care: <b>1800-AURA-MEDS</b>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Vault Access</h4>
+        <ul>
+          <li><a href="index.html">Home Direct</a></li>
+          <li><a href="medicines.html">Medicines Catalog</a></li>
+          <li><a href="telemetry.html">IoT Live Telemetry</a></li>
+          <li><a href="cart.html">Express Cart Matrix</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Specialized Care</h4>
+        <ul>
+          <li><a href="#">Antibiotics & Anti-Infectives</a></li>
+          <li><a href="#">Cardiology & Lipid Support</a></li>
+          <li><a href="#">Pediatric Formulations</a></li>
+          <li><a href="#">Cold-Chain Vaccines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Regulatory Compliance</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          Licensed by Central Drugs Standard Control Organization (CDSCO).
+        </p>
+        <div style="display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--blue-glow);">
+          <span>🛡️ ISO 9001</span> • <span>🔒 SSL Encrypted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AURA-MEDS Inc. All rights reserved. Directed by Dr. Madhu, M.D.
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
