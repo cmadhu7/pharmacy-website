@@ -13,9 +13,9 @@
       <span class="close-modal" onclick="closePrescriptionModal()">&times;</span>
       <h3 style="color: var(--cyan-neon); text-align: center; margin-bottom: 1rem;">🤖 AI Optical Recognition</h3>
       <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Prescription Scanned Successfully. Detected Items:</p>
-      <div class="doctor-profile">
-    <img src="images/madhu-doctor.png" alt="Madhu Pharmacy Professional">
-</div>
+      <div class="doctor-profile" style="text-align: center;">
+        <img src="images/doctor.jpg" alt="Dr. Madhu - Medical Director" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--cyan-neon); margin: 0.5rem auto; display: block; box-shadow: 0 0 10px var(--cyan-neon);">
+      </div>
       <div style="background: rgba(0,240,255,0.05); border: 1px solid var(--panel-border); padding: 1rem; border-radius: 12px; margin: 1.2rem 0; font-size: 0.85rem;">
         <div>🔹 <b>Amoxicillin 500mg</b> (Dosage: 1 Capsule - 3x Daily)</div>
         <div style="margin-top: 0.5rem;">🔹 <b>Bio-Zinc Multi-Vitamin</b> (Dosage: 1 Tablet - 1x Daily)</div>
@@ -81,10 +81,17 @@
         </div>
       </div>
 
-      <div style="background: var(--bg-surface); padding: 2rem; border-radius: 20px; border: 1px dashed var(--cyan-neon); text-align: center; width: 320px;">
-        <h3 style="color: var(--blue-glow); margin-bottom: 0.5rem;">📜 Upload Prescription</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem;">AI Scans & Auto-Fills Order Cart</p>
-        <button class="btn-buy" style="width: 100%;" onclick="uploadPrescription()">Upload Document 📤</button>
+      <div class="hero-doctor-card">
+        <div class="hero-doc-img-wrapper">
+          <img src="images/doctor.jpg" alt="Dr. Madhu, M.D." class="hero-doc-img">
+          <div class="hero-doc-status">
+            <span></span> Live Online
+          </div>
+        </div>
+        <div class="hero-doc-name">Dr. Madhu, M.D.</div>
+        <div class="hero-doc-role">Chief Medical Director</div>
+        <div class="hero-doc-badge">🩺 Verified Clinical Specialist</div>
+        <button class="btn-buy" style="width: 100%;" onclick="openAuthModal('signup')">Consult Doctor 💬</button>
       </div>
     </div>
 
@@ -106,6 +113,21 @@
         <div class="metric-val">50,000+</div>
         <div class="metric-label">Prescriptions Delivered</div>
       </div>
+    </div>
+
+    <!-- Dedicated Prescription Upload Banner Section -->
+    <div class="prescription-upload-banner">
+      <div class="upload-banner-left">
+        <div class="upload-banner-icon">📜</div>
+        <div class="upload-banner-text">
+          <h3>Instant AI Prescription Reader & Auto-Cart</h3>
+          <p>Upload your doctor's handwritten or printed prescription. Our AI instantly scans salt dosages, verifies inventory availability, and prepares your order cart.</p>
+          <div class="upload-banner-features">
+            <span>✓ 100% CDSCO Compliant</span> • <span>✓ Instant Optical AI Scan</span> • <span>✓ Rapid Vault Dispatch</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-buy btn-upload-lg" onclick="uploadPrescription()">Upload Prescription 📤</button>
     </div>
 
     <!-- Live Drone Delivery Map & Location Finder Section -->
@@ -135,7 +157,7 @@
 
       <div class="pharmacy-card">
         <span class="badge">Prescription</span>
-        <img class="card-img" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="Amoxicillin">
+        <img class="card-img" src="images/pharmacy-hero.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80'" alt="Amoxicillin">
         <div class="card-title">Amoxicillin Trio-Pack 500mg</div>
         <div class="card-desc">Broad-spectrum antibacterial formulation targeting systemic infections.</div>
         <div class="card-spec">Batch: #AX-2026-90 • Exp: 08/2028</div>
@@ -147,7 +169,7 @@
 
       <div class="pharmacy-card">
         <span class="badge">OTC Wellness</span>
-        <img class="card-img" src="https://images.unsplash.com/photo-1550572017-edf79289050e?w=500&q=80" alt="Vitamins">
+        <img class="card-img" src="images/vitamin-c.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550572017-edf79289050e?w=500&q=80'" alt="Vitamins">
         <div class="card-title">Bio-Zinc Multi-Vitamin Complex</div>
         <div class="card-desc">Cellular micronutrient matrix for immune system fortification.</div>
         <div class="card-spec">Batch: #BZ-9921-12 • Exp: 12/2027</div>
@@ -159,7 +181,7 @@
 
       <div class="pharmacy-card">
         <span class="badge">Cardiology</span>
-        <img class="card-img" src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80" alt="Cardiac">
+        <img class="card-img" src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80" onerror="this.onerror=null; this.src='images/pharmacy-hero.png';" alt="Cardiac">
         <div class="card-title">Cardio CoQ10 300mg Capsules</div>
         <div class="card-desc">High-potency cardiac vascular support and energetic lipid defense.</div>
         <div class="card-spec">Batch: #CQ-1088-44 • Exp: 05/2029</div>
@@ -171,7 +193,7 @@
 
       <div class="pharmacy-card">
         <span class="badge">Pediatric</span>
-        <img class="card-img" src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=500&q=80" alt="Syrup">
+        <img class="card-img" src="images/paracetamol.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576602976047-174e57a47881?w=500&q=80'" alt="Syrup">
         <div class="card-title">Pediatric Paracetamol Syrup</div>
         <div class="card-desc">Gentle fast-acting analgesic & antipyretic for children.</div>
         <div class="card-spec">Batch: #PP-3012-09 • Exp: 01/2027</div>
@@ -183,7 +205,7 @@
 
       <div class="pharmacy-card">
         <span class="badge">Diabetic</span>
-        <img class="card-img" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" alt="Diabetes">
+        <img class="card-img" src="images/first-aid.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80'" alt="Diabetes">
         <div class="card-title">Metformin ER 1000mg</div>
         <div class="card-desc">Extended-release glycemic regulator for blood glucose stabilization.</div>
         <div class="card-spec">Batch: #MF-8801-99 • Exp: 10/2028</div>
